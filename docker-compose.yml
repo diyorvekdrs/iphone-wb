@@ -1,0 +1,26 @@
+# Local MySQL for development — no system MySQL install required.
+# Usage: npm run db:up
+# First start runs server/sql/schema.sql automatically (empty volume only).
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: itball2-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: itball2_root
+      MYSQL_DATABASE: itball2
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./server/sql/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost', '-u', 'root', '-pitball2_root']
+      interval: 4s
+      timeout: 5s
+      retries: 15
+      start_period: 15s
+
+volumes:
+  mysql_data:
