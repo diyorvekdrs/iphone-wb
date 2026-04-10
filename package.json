@@ -1,0 +1,49 @@
+{
+  "name": "itball2-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:reset": "docker compose down -v && docker compose up -d",
+    "db:import-iphone": "node server/scripts/import-iphone-specs.mjs",
+    "db:seed-products": "node server/scripts/seed-catalog-products.mjs",
+    "db:seed": "node server/scripts/seed-catalog-products.mjs && node server/scripts/import-iphone-specs.mjs",
+    "dev": "vite --config client/vite.config.js",
+    "server": "node server/index.js",
+    "dev:full": "concurrently -k \"npm run server\" \"npm run dev\"",
+    "build": "vite build --config client/vite.config.js",
+    "lint": "eslint .",
+    "preview": "vite preview --config client/vite.config.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "csv-parse": "^6.2.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "framer-motion": "^12.38.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.12.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "stripe": "^17.7.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "tailwindcss": "^4.2.2",
+    "vite": "^8.0.1"
+  }
+}

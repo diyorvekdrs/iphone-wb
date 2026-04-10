@@ -1,0 +1,11 @@
+-- Optional one-time cleanup if you previously ran old sample product inserts.
+-- Only run when no orders reference these rows:
+--
+-- DELETE FROM order_items WHERE product_id IN (
+--   SELECT id FROM products WHERE sku IN ('IPH-DEMO-1', 'ACC-DEMO-1')
+-- );
+-- DELETE FROM products WHERE sku IN ('IPH-DEMO-1', 'ACC-DEMO-1');
+--
+-- Current catalog: server/data/catalog_products.json → npm run db:seed-products
+-- Comparison specs: server/data/iphone_comparison.csv → npm run db:import-iphone
+-- Full load: npm run db:seed

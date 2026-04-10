@@ -1,0 +1,72 @@
+[
+  {
+    "sku": "17-pro-max",
+    "name": "iPhone 17 Pro Max",
+    "description": "Our largest Pro display, longest battery life, and the most advanced pro camera system — aluminum unibody design with A19 Pro.",
+    "image_url": "/iphone-models/iphone-17-pro-orange-front-back.png",
+    "storage_gb": 256,
+    "color": "Cosmic Orange, Deep Navy, Silver",
+    "price": 1199.0,
+    "stock": 85
+  },
+  {
+    "sku": "17-pro",
+    "name": "iPhone 17 Pro",
+    "description": "Pro performance and pro cameras in a heat-forged aluminum unibody — A19 Pro with vapor-chamber cooling and all-day battery.",
+    "image_url": "/iphone-models/nav-iphone-17pro.png",
+    "storage_gb": 256,
+    "color": "Cosmic Orange, Deep Blue, Silver",
+    "price": 1099.0,
+    "stock": 90
+  },
+  {
+    "sku": "air",
+    "name": "iPhone Air",
+    "description": "The thinnest iPhone ever — titanium frame, A19 Pro power, and a stunning 6.5\" Super Retina XDR display.",
+    "image_url": "/iphone-models/iphone-air.png",
+    "storage_gb": 256,
+    "color": "Sky Blue, Cloud White, Pale Pink, Midnight",
+    "price": 999.0,
+    "stock": 70
+  },
+  {
+    "sku": "17",
+    "name": "iPhone 17",
+    "description": "A19 chip, advanced dual cameras, Dynamic Island, and durable design in gorgeous colors.",
+    "image_url": "/iphone-models/iphone-17.png",
+    "storage_gb": 256,
+    "color": "Lavender, Sage Green, Light Blue, White, Space Gray",
+    "price": 799.0,
+    "stock": 110
+  },
+  {
+    "sku": "16-pro-max",
+    "name": "iPhone 16 Pro Max",
+    "description": "Huge 6.9\" display, A18 Pro, titanium design, and the ultimate pro camera system.",
+    "image_url": "/iphone-models/iphone-16-pro-max.png",
+    "storage_gb": 256,
+    "color": "Natural Titanium, Blue Titanium, White Titanium",
+    "price": 1099.0,
+    "stock": 55
+  },
+  {
+    "sku": "16-pro",
+    "name": "iPhone 16 Pro",
+    "description": "A18 Pro chip, pro cameras, and premium titanium — compact 6.3\" Pro power.",
+    "image_url": "/iphone-models/iphone-16-pro-max.png",
+    "storage_gb": 128,
+    "color": "Natural Titanium, Blue Titanium, Black Titanium",
+    "price": 899.0,
+    "stock": 65
+  },
+  {
+    "sku": "16",
+    "name": "iPhone 16",
+    "description": "A18 chip, Dynamic Island, 48MP Fusion camera, and all-day battery — the iPhone you love, even more capable.",
+    "image_url": "/iphone-models/iphone-16.png",
+    "storage_gb": 128,
+    "color": "Ultramarine, Teal, Pink, White, Black",
+    "price": 699.0,
+    "stock": 100
+  }
+]
