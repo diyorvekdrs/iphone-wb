@@ -3,13 +3,8 @@
  * Use `image` for a photo path under `/public`; Compare tile uses a dedicated asset.
  */
 const I = {
-<<<<<<< HEAD
   i17: '/iphone-models/iphone-17-pro-orange-front-back.png',
   i17nav: '/iphone-models/iphone-17-pro-orange-front-back.png',
-=======
-  i17: '/iphone-models/iphone-17-pro.avif',
-  i17nav: '/iphone-models/nav-iphone-17pro.png',
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   /** Base iPhone 17 strip icon. */
   i17Phone: '/iphone-models/nav-iphone-17.png',
   /** Base iPhone 16 (non‑Pro) hero asset */

@@ -195,14 +195,10 @@ router.delete('/products/:id', async (req, res) => {
 router.get('/orders', async (_req, res) => {
   try {
     const [orders] = await pool.query(
-<<<<<<< HEAD
       `SELECT o.id, o.user_id, o.status, o.total_amount, o.notes, o.created_at,
               o.shipping_full_name, o.shipping_phone, o.shipping_street,
               o.shipping_city, o.shipping_region, o.shipping_zip, o.shipping_country,
               o.shipping_address,
-=======
-      `SELECT o.id, o.user_id, o.status, o.total_amount, o.shipping_address, o.notes, o.created_at,
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
               u.email AS customer_email, u.first_name AS customer_first_name, u.last_name AS customer_last_name
        FROM orders o
        INNER JOIN users u ON u.id = o.user_id
@@ -266,14 +262,10 @@ router.patch('/orders/:id', async (req, res) => {
       return res.status(404).json({ error: 'Order not found.' })
     }
     const [rows] = await pool.execute(
-<<<<<<< HEAD
       `SELECT o.id, o.user_id, o.status, o.total_amount, o.notes, o.created_at,
               o.shipping_full_name, o.shipping_phone, o.shipping_street,
               o.shipping_city, o.shipping_region, o.shipping_zip, o.shipping_country,
               o.shipping_address
-=======
-      `SELECT o.id, o.user_id, o.status, o.total_amount, o.shipping_address, o.notes, o.created_at
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
        FROM orders o WHERE o.id = ?`,
       [id],
     )

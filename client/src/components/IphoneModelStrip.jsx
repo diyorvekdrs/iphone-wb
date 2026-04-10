@@ -9,11 +9,7 @@ export default function IphoneModelStrip() {
   return (
     <div className="w-full px-1 py-1 md:px-2">
       <div
-<<<<<<< HEAD
         className="scrollbar-hide flex justify-center gap-6 overflow-x-auto pb-3 pt-3 md:gap-8 lg:gap-10"
-=======
-        className="scrollbar-hide flex gap-6 overflow-x-auto pb-3 pt-3 md:gap-8 lg:gap-10"
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
         role="list"
         aria-label="iPhone models"
       >

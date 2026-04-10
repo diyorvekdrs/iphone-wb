@@ -7,11 +7,7 @@ function isDisallowedProductImageUrl(url) {
   return u.includes('citypng') || u.includes('/citypng/')
 }
 
-<<<<<<< HEAD
 /** For display: return null if URL is disallowed or missing. */
-=======
-/** For display: return null if URL is disallowed (caller shows placeholder). */
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
 export function sanitizeProductImageUrl(url) {
   if (url == null || url === '') return null
   if (isDisallowedProductImageUrl(url)) return null

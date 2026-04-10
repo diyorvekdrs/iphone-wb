@@ -76,11 +76,7 @@ export default function BuyIphonePage({ modelId }) {
       const { products: list } = await apiProducts()
       setProducts(Array.isArray(list) ? list : [])
     } catch (e) {
-<<<<<<< HEAD
       setCatalogError(e.message || 'Unable to connect to server.')
-=======
-      setCatalogError(e.message || 'Could not load products.')
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
       setProducts([])
     } finally {
       setCatalogLoading(false)

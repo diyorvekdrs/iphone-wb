@@ -36,11 +36,7 @@ export default function Navbar() {
             <li key={item.label} className="shrink-0">
               <a
                 href={item.href}
-<<<<<<< HEAD
                 className="cursor-pointer whitespace-nowrap transition-all duration-200 ease-out hover:text-[#1d1d1f] hover:opacity-80"
-=======
-                className="whitespace-nowrap transition-colors hover:text-[#1d1d1f]"
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
               >
                 {item.label}
               </a>
@@ -90,7 +86,6 @@ export default function Navbar() {
           </a>
           {!loading && user ? (
             <>
-<<<<<<< HEAD
               <a
                 href="#/account"
                 className="hidden max-w-[100px] cursor-pointer truncate text-[11px] font-medium text-[#1d1d1f]/75 transition-all duration-200 ease-out hover:text-[#1d1d1f] hover:opacity-80 md:inline"
@@ -98,14 +93,6 @@ export default function Navbar() {
               >
                 {accountLabel}
               </a>
-=======
-              <span
-                className="hidden max-w-[100px] truncate text-[11px] text-[#1d1d1f]/75 md:inline"
-                title={accountLabel}
-              >
-                {accountLabel}
-              </span>
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
               {user.role === 'super_admin' ? (
                 <a
                   href="#/admin"
@@ -116,11 +103,7 @@ export default function Navbar() {
               ) : null}
               <button
                 type="button"
-<<<<<<< HEAD
                 className="hidden cursor-pointer rounded-full px-2.5 py-1.5 text-[11px] font-medium text-[#1d1d1f]/90 transition-all duration-200 ease-out hover:text-[#1d1d1f] hover:bg-black/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-1 sm:inline-flex"
-=======
-                className="hidden rounded-full px-2.5 py-1.5 text-[11px] font-medium text-[#1d1d1f]/90 transition hover:text-[#1d1d1f] sm:inline-flex"
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                 onClick={() => {
                   void logout()
                 }}
@@ -138,11 +121,7 @@ export default function Navbar() {
           ) : null}
           <button
             type="button"
-<<<<<<< HEAD
             className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md text-[#1d1d1f] transition-colors duration-200 hover:bg-black/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3] lg:hidden"
-=======
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md text-[#1d1d1f] lg:hidden"
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
             aria-expanded={open}
             aria-controls="global-mobile-menu"
             onClick={() => setOpen((v) => !v)}
@@ -215,7 +194,6 @@ export default function Navbar() {
               ) : null}
               {!loading && user ? (
                 <>
-<<<<<<< HEAD
                   <li className="border-t border-black/[0.06] pt-1 mt-1">
                     <a
                       href="#/account"
@@ -224,10 +202,6 @@ export default function Navbar() {
                     >
                       {accountLabel}
                     </a>
-=======
-                  <li className="border-t border-black/[0.06] px-3 py-2 text-[13px] text-[#6e6e73]">
-                    {accountLabel}
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                   </li>
                   {user.role === 'super_admin' ? (
                     <li>
@@ -243,11 +217,7 @@ export default function Navbar() {
                   <li>
                     <button
                       type="button"
-<<<<<<< HEAD
                       className="w-full cursor-pointer rounded-lg px-3 py-3 text-left text-[17px] text-[#1d1d1f] transition-colors duration-200 hover:bg-black/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0071e3]"
-=======
-                      className="w-full rounded-lg px-3 py-3 text-left text-[17px] text-[#1d1d1f] hover:bg-black/[0.04]"
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                       onClick={() => {
                         setOpen(false)
                         void logout()

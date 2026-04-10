@@ -1,10 +1,5 @@
 /**
-<<<<<<< HEAD
  * Terms of Use for iPhone Store.
-=======
- * Terms of use for the IT BALL / iPhone Store demo app.
- * Have qualified counsel review before any production launch.
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
  */
 export default function TermsOfUsePage() {
   const updated = 'April 10, 2026'
@@ -21,25 +16,11 @@ export default function TermsOfUsePage() {
         <p className="mt-2 text-[14px] text-[#6e6e73]">Last updated: {updated}</p>
 
         <div className="mt-8 space-y-8 text-[15px] leading-relaxed text-[#424245]">
-<<<<<<< HEAD
-=======
-          <section className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-[13px] text-amber-950">
-            <p>
-              <strong className="font-semibold">Note:</strong> These terms explain how this demo store is
-              meant to be used. They are not legal advice. For a real business, work with a lawyer to adapt
-              them for your country, products, and payment partners.
-            </p>
-          </section>
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
 
           <section>
             <h2 className="text-[17px] font-semibold text-[#1d1d1f]">Agreement</h2>
             <p className="mt-2">
-<<<<<<< HEAD
               By using <strong className="font-medium text-[#1d1d1f]">iPhone Store</strong> (the “Store,”
-=======
-              By using <strong className="font-medium text-[#1d1d1f]">IT BALL Store</strong> (the “Store,”
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
               “we,” or “us”), including browsing, creating an account, or placing an order, you agree to
               these Terms of Use and our{' '}
               <a href="#/privacy" className="text-[#0066cc] hover:underline">
@@ -61,15 +42,9 @@ export default function TermsOfUsePage() {
           <section>
             <h2 className="text-[17px] font-semibold text-[#1d1d1f]">Products, pricing, &amp; availability</h2>
             <p className="mt-2">
-<<<<<<< HEAD
               Product descriptions, images, and prices are shown for your information. We may correct errors,
               update catalog data, or limit quantities. If an order cannot be fulfilled as described, we may
               cancel it or contact you.
-=======
-              Product descriptions, images, and prices are shown for demonstration. We may correct errors,
-              update catalog data, or limit quantities. If an order cannot be fulfilled as described, we may
-              cancel it or contact you; where payment was captured, we will follow applicable refund rules.
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
             </p>
           </section>
 
@@ -106,13 +81,7 @@ export default function TermsOfUsePage() {
           <section>
             <h2 className="text-[17px] font-semibold text-[#1d1d1f]">Intellectual property</h2>
             <p className="mt-2">
-<<<<<<< HEAD
               The Store’s design, text, and original assets belong to us or our licensors.
-=======
-              The Store’s design, text, and original assets belong to us or our licensors. iPhone-related
-              imagery may be used in an educational or demo context; a commercial site needs appropriate
-              rights and compliance with brand guidelines.
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
             </p>
           </section>
 
@@ -148,13 +117,8 @@ export default function TermsOfUsePage() {
           <section>
             <h2 className="text-[17px] font-semibold text-[#1d1d1f]">Governing law</h2>
             <p className="mt-2">
-<<<<<<< HEAD
               These terms are governed by the laws applicable in our jurisdiction. Any disputes will be 
               handled in the appropriate courts.
-=======
-              Replace this with the laws and courts that apply to your real business (for example, “State
-              of X, USA,” or a specific country). Until then, these terms are a neutral template only.
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
             </p>
           </section>
 
@@ -169,15 +133,9 @@ export default function TermsOfUsePage() {
           <section>
             <h2 className="text-[17px] font-semibold text-[#1d1d1f]">Contact</h2>
             <p className="mt-2">
-<<<<<<< HEAD
               For any legal inquiries regarding these terms, please contact us at:{' '}
               <a
                 href="mailto:ItzIbragimov.uz@gmail.com"
-=======
-              Questions about these terms:{' '}
-              <a
-                href="mailto:ItzIbragimov.uz@gmail.com?subject=Terms%20of%20use%20inquiry"
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                 className="font-mono text-[14px] text-[#0066cc] hover:underline"
               >
                 ItzIbragimov.uz@gmail.com

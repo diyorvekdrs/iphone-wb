@@ -11,10 +11,7 @@ import { isValidIphoneModelId } from '../utils/iphoneRoutes.js'
  * @typedef {{ view: 'orders', ordersDetailId?: number }} OrdersRoute
  * @typedef {{ view: 'login' }} LoginRoute
  * @typedef {{ view: 'register' }} RegisterRoute
-<<<<<<< HEAD
  * @typedef {{ view: 'account' }} AccountRoute
-=======
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
  * @typedef {{ view: 'admin' }} AdminRoute
  * @typedef {{ view: 'iphone', modelId: string }} IphoneRoute
  * @typedef {{ view: 'buy-iphone', modelId: string }} BuyIphoneRoute
@@ -105,18 +102,12 @@ export function parseHash(hash) {
   }
   if (head === 'login') return { view: 'login' }
   if (head === 'register') return { view: 'register' }
-<<<<<<< HEAD
   if (head === 'account') return { view: 'account' }
   if (head === 'admin') return { view: 'admin' }
   if (head === 'privacy') return { view: 'privacy' }
   if (head === 'terms') return { view: 'terms' }
   if (head === 'sla') return { view: 'sla' }
   if (head === 'shipping') return { view: 'shipping' }
-=======
-  if (head === 'admin') return { view: 'admin' }
-  if (head === 'privacy') return { view: 'privacy' }
-  if (head === 'terms') return { view: 'terms' }
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
 
   return { view: 'home' }
 }
@@ -139,18 +130,12 @@ export function useHashRoute() {
         next.view === 'orders' ||
         next.view === 'login' ||
         next.view === 'register' ||
-<<<<<<< HEAD
         next.view === 'account' ||
         next.view === 'admin' ||
         next.view === 'privacy' ||
         next.view === 'terms' ||
         next.view === 'sla' ||
         next.view === 'shipping'
-=======
-        next.view === 'admin' ||
-        next.view === 'privacy' ||
-        next.view === 'terms'
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
       ) {
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
       }

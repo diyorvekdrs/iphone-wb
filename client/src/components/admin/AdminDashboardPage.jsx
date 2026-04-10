@@ -17,21 +17,12 @@ import {
 } from '../../utils/sanitizeImageUrl.js'
 import { useAuth } from '../../hooks/useAuth.js'
 import { isAdminNewPurchaseStatus, ORDER_FLOW_STEPS } from '../../utils/orderFlow.js'
-<<<<<<< HEAD
-
-=======
-import AdminErDiagram from './AdminErDiagram.jsx'
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
 
 const tabs = [
   { id: 'overview', label: 'Overview' },
   { id: 'products', label: 'Products' },
   { id: 'purchases', label: 'Purchases' },
   { id: 'customers', label: 'Customers' },
-<<<<<<< HEAD
-=======
-  { id: 'er', label: 'ER diagram' },
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
 ]
 
 const inputCls =
@@ -174,11 +165,7 @@ export default function AdminDashboardPage() {
       sku: p.sku ?? '',
       name: p.name ?? '',
       description: p.description ?? '',
-<<<<<<< HEAD
       image_url: sanitizeProductImageUrlForSave(p.image_url) ?? '',
-=======
-      image_url: sanitizeProductImageUrl(p.image_url) ?? '',
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
       storage_gb: p.storage_gb != null ? String(p.storage_gb) : '',
       color: p.color ?? '',
       price: String(p.price ?? ''),
@@ -311,7 +298,6 @@ export default function AdminDashboardPage() {
                   </button>
                 </div>
                 <p className="text-[12px] font-semibold uppercase tracking-wide text-[#6e6e73]">
-<<<<<<< HEAD
                   Shipping Details
                 </p>
                 <div className="text-[14px]">
@@ -327,11 +313,6 @@ export default function AdminDashboardPage() {
                     <p>{orderDetail.order.shipping_address || '—'}</p>
                   )}
                 </div>
-=======
-                  Shipping / notes
-                </p>
-                <p className="text-[14px]">{orderDetail.order.shipping_address || '—'}</p>
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                 {orderDetail.order.notes ? (
                   <p className="text-[14px] text-[#6e6e73]">{orderDetail.order.notes}</p>
                 ) : null}
@@ -870,16 +851,6 @@ export default function AdminDashboardPage() {
               </div>
             </section>
           )}
-<<<<<<< HEAD
-=======
-
-          {tab === 'er' && (
-            <section>
-              <h2 className="sr-only">Database ER diagram</h2>
-              <AdminErDiagram />
-            </section>
-          )}
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
         </div>
       </div>
     </main>

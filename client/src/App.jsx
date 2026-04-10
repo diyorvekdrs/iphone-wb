@@ -14,18 +14,12 @@ import IphoneCategoryHeader from './components/IphoneCategoryHeader.jsx'
 import ExploreLineupSection from './components/ExploreLineupSection.jsx'
 import SwitchToIphoneSection from './components/SwitchToIphoneSection.jsx'
 import SignificantOthersSection from './components/SignificantOthersSection.jsx'
-<<<<<<< HEAD
 import AccountPage from './components/AccountPage.jsx'
 import Footer from './components/Footer.jsx'
 import PrivacyPolicyPage from './components/legal/PrivacyPolicyPage.jsx'
 import TermsOfUsePage from './components/legal/TermsOfUsePage.jsx'
 import SlaPage from './components/legal/SlaPage.jsx'
 import ShippingPolicyPage from './components/legal/ShippingPolicyPage.jsx'
-=======
-import Footer from './components/Footer.jsx'
-import PrivacyPolicyPage from './components/legal/PrivacyPolicyPage.jsx'
-import TermsOfUsePage from './components/legal/TermsOfUsePage.jsx'
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
 import { useHashRoute } from './hooks/useHashRoute.js'
 
 function App() {
@@ -122,7 +116,6 @@ function App() {
     )
   }
 
-<<<<<<< HEAD
   if (view === 'account') {
     return (
       <div className="min-h-screen bg-[#f5f5f7] text-neutral-900 antialiased">
@@ -135,8 +128,6 @@ function App() {
     )
   }
 
-=======
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   if (view === 'register') {
     return (
       <div className="min-h-screen bg-[#f5f5f7] text-neutral-900 antialiased">
@@ -179,7 +170,6 @@ function App() {
     )
   }
 
-<<<<<<< HEAD
   if (view === 'sla') {
     return (
       <div className="min-h-screen bg-[#f5f5f7] text-neutral-900 antialiased">
@@ -200,8 +190,6 @@ function App() {
     )
   }
 
-=======
->>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   return (
     <div className="min-h-screen bg-white text-neutral-900 antialiased">
       <Navbar />
