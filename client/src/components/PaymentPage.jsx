@@ -511,20 +511,22 @@ export default function PaymentPage() {
                 <label className="text-[12px] font-semibold text-[#1d1d1f]">Phone Number <span className="text-[#ff3b30] ml-0.5">*</span></label>
                 <input
                   type="tel"
-                  placeholder="(555) 000-0000"
+                  inputMode="numeric"
+                  placeholder="5550000000"
                   className={inputCls(shipping.phone)}
                   value={shipping.phone}
-                  onChange={(e) => setShipping({ ...shipping, phone: e.target.value })}
+                  onChange={(e) => setShipping({ ...shipping, phone: e.target.value.replace(/\D/g, '') })}
                 />
               </div>
               <div>
                 <label className="text-[12px] font-semibold text-[#1d1d1f]">ZIP / Postal Code <span className="text-[#ff3b30] ml-0.5">*</span></label>
                 <input
                   type="text"
+                  inputMode="numeric"
                   placeholder="10001"
                   className={inputCls(shipping.zip)}
                   value={shipping.zip}
-                  onChange={(e) => setShipping({ ...shipping, zip: e.target.value })}
+                  onChange={(e) => setShipping({ ...shipping, zip: e.target.value.replace(/\D/g, '') })}
                 />
               </div>
               <div className="sm:col-span-2">
