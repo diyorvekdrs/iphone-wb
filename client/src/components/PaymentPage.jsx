@@ -14,7 +14,10 @@ import { money, priceOf } from '../utils/money.js'
 import { formatOrderRef } from '../utils/orderFlow.js'
 import { sanitizeProductImageUrl } from '../utils/sanitizeImageUrl.js'
 import OrderTimeline from './OrderTimeline.jsx'
+<<<<<<< HEAD
 import { countries } from '../data/countries.js'
+=======
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -27,6 +30,7 @@ export default function PaymentPage() {
   const [catalogError, setCatalogError] = useState('')
 
   const [selectedIds, setSelectedIds] = useState(() => new Set())
+<<<<<<< HEAD
   const [shipping, setShipping] = useState({
     fullName: '',
     phone: '',
@@ -36,6 +40,9 @@ export default function PaymentPage() {
     zip: '',
     country: 'United States',
   })
+=======
+  const [shippingAddress, setShippingAddress] = useState('')
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   const [checkoutLoading, setCheckoutLoading] = useState(false)
   const [checkoutError, setCheckoutError] = useState('')
   const [orderSuccess, setOrderSuccess] = useState(null)
@@ -44,6 +51,7 @@ export default function PaymentPage() {
   const [stripeVerifyLoading, setStripeVerifyLoading] = useState(false)
   const [stripeRedirectLoading, setStripeRedirectLoading] = useState(false)
 
+<<<<<<< HEAD
   const isShippingValid = useMemo(() => {
     return (
       shipping.fullName.trim() &&
@@ -56,6 +64,8 @@ export default function PaymentPage() {
     )
   }, [shipping])
  
+=======
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   const loadProducts = useCallback(async () => {
     setCatalogError('')
     setCatalogLoading(true)
@@ -63,7 +73,11 @@ export default function PaymentPage() {
       const { products: list } = await apiProducts()
       setProducts(Array.isArray(list) ? list : [])
     } catch (e) {
+<<<<<<< HEAD
       setCatalogError(e.message || 'Unable to connect to server.')
+=======
+      setCatalogError(e.message || 'Could not load products.')
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
       setProducts([])
     } finally {
       setCatalogLoading(false)
@@ -171,10 +185,13 @@ export default function PaymentPage() {
       setCheckoutError('Sign in with your customer account to complete payment.')
       return
     }
+<<<<<<< HEAD
     if (!isShippingValid) {
       setCheckoutError('Please fill in all required shipping fields.')
       return
     }
+=======
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
     setCheckoutLoading(true)
     try {
       const items = lines.map((l) => ({
@@ -184,7 +201,11 @@ export default function PaymentPage() {
       }))
       const data = await apiCreateOrder({
         items,
+<<<<<<< HEAD
         shipping,
+=======
+        shipping_address: shippingAddress.trim() || undefined,
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
         notes: undefined,
       })
       removePaymentLines(lines.map((l) => l.id))
@@ -197,6 +218,7 @@ export default function PaymentPage() {
             }
           : null,
       )
+<<<<<<< HEAD
       setShipping({
         fullName: '',
         phone: '',
@@ -206,6 +228,9 @@ export default function PaymentPage() {
         zip: '',
         country: 'United States',
       })
+=======
+      setShippingAddress('')
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
       void loadProducts()
     } catch (e) {
       setCheckoutError(e.message || 'Could not place order.')
@@ -249,6 +274,7 @@ export default function PaymentPage() {
       <main className="mx-auto max-w-[720px] px-4 pb-24 pt-8 md:px-6 md:pt-10">
         <div className="space-y-6">
           <div
+<<<<<<< HEAD
             className={`rounded-[20px] border px-6 py-6 text-center ${
               orderSuccess.status === 'placed'
                 ? 'border-amber-200/80 bg-amber-50'
@@ -266,6 +292,14 @@ export default function PaymentPage() {
             }`}>
               {formatOrderRef(orderSuccess.id)} · {money.format(Number(orderSuccess.total_amount))}
               {orderSuccess.status === 'placed' ? ' — payment pending' : ''}
+=======
+            className="rounded-[20px] border border-emerald-200/80 bg-emerald-50 px-6 py-6 text-center"
+            role="status"
+          >
+            <p className="text-[17px] font-semibold text-[#14532d]">Thank you</p>
+            <p className="mt-2 text-[15px] text-[#166534]">
+              {formatOrderRef(orderSuccess.id)} · {money.format(Number(orderSuccess.total_amount))}
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
             </p>
           </div>
 
@@ -289,7 +323,11 @@ export default function PaymentPage() {
                   type="button"
                   disabled={stripeRedirectLoading || paymentLoading}
                   onClick={() => void startStripeCheckout()}
+<<<<<<< HEAD
                   className="mt-4 w-full cursor-pointer rounded-full bg-[#0071e3] py-3.5 text-[16px] font-medium text-white transition-all duration-200 hover:bg-[#0077ed] disabled:cursor-not-allowed disabled:bg-neutral-300"
+=======
+                  className="mt-4 w-full rounded-full bg-[#0071e3] py-3.5 text-[16px] font-medium text-white transition hover:bg-[#0077ed] disabled:bg-neutral-300"
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                 >
                   {stripeRedirectLoading ? 'Redirecting to Stripe…' : 'Pay with card (Stripe test)'}
                 </button>
@@ -302,17 +340,27 @@ export default function PaymentPage() {
                 type="button"
                 disabled={paymentLoading || stripeRedirectLoading}
                 onClick={() => void simulatePayment()}
+<<<<<<< HEAD
                 className="mt-3 w-full cursor-pointer rounded-full border border-black/[0.12] bg-white py-3.5 text-[15px] font-medium text-[#1d1d1f] transition-all duration-200 hover:bg-black/[0.04] disabled:cursor-not-allowed disabled:opacity-50"
+=======
+                className="mt-3 w-full rounded-full border border-black/[0.12] bg-white py-3.5 text-[15px] font-medium text-[#1d1d1f] transition hover:bg-black/[0.04] disabled:opacity-50"
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
               >
                 {paymentLoading ? 'Processing…' : 'Mark as paid (demo — no card)'}
               </button>
             </div>
           ) : (
+<<<<<<< HEAD
             <div className="rounded-[20px] border border-emerald-100 bg-emerald-50/50 px-6 py-4 text-center">
               <p className="text-[15px] font-medium text-emerald-800">
                 ✓ Payment received. You&apos;ll get updates as your order moves along.
               </p>
             </div>
+=======
+            <p className="text-center text-[15px] text-[#6e6e73]">
+              Payment received. You’ll get updates as your order moves along.
+            </p>
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
           )}
 
           {checkoutError ? (
@@ -332,10 +380,17 @@ export default function PaymentPage() {
               View your orders
             </a>
             <a
+<<<<<<< HEAD
               href="#/basket"
               className="inline-flex justify-center rounded-full border border-black/[0.12] px-8 py-3 text-[15px] font-medium text-[#1d1d1f] transition hover:bg-black/[0.04]"
             >
               Edit your cart
+=======
+              href="#/payment"
+              className="inline-flex justify-center rounded-full border border-black/[0.12] px-8 py-3 text-[15px] font-medium text-[#1d1d1f] transition hover:bg-black/[0.04]"
+            >
+              Back to payment queue
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
             </a>
             <a
               href="#/"
@@ -349,11 +404,14 @@ export default function PaymentPage() {
     )
   }
 
+<<<<<<< HEAD
   const inputCls = (val) =>
     `w-full rounded-xl border ${
       val.trim() ? 'border-black/[0.12]' : 'border-black/[0.08]'
     } bg-[#f5f5f7] px-4 py-3 text-[15px] text-[#1d1d1f] outline-none transition-all focus:border-[#0071e3] focus:ring-2 focus:ring-[#0071e3]/25`
 
+=======
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   return (
     <main className="mx-auto max-w-[900px] px-4 pb-24 pt-8 md:px-6 md:pt-10">
       {stripeVerifyLoading ? (
@@ -445,6 +503,7 @@ export default function PaymentPage() {
                       onChange={() => toggleLine(line.id)}
                       className="mt-1 h-4 w-4 shrink-0 rounded border-black/20 text-[#0071e3]"
                     />
+<<<<<<< HEAD
                     <div className="relative h-28 w-full shrink-0 overflow-hidden rounded-xl bg-[#f5f5f7] sm:h-24 sm:w-24 p-2">
                       {(line.image || p?.image_url) ? (
                         <img
@@ -455,6 +514,14 @@ export default function PaymentPage() {
                             e.target.onerror = null
                             e.target.src = '/iphone-models/fallback.png'
                           }}
+=======
+                    <div className="relative h-28 w-full shrink-0 overflow-hidden rounded-xl bg-[#f5f5f7] sm:h-24 sm:w-24">
+                      {sanitizeProductImageUrl(p?.image_url) ?? line.image ? (
+                        <img
+                          src={sanitizeProductImageUrl(p?.image_url) ?? line.image ?? undefined}
+                          alt=""
+                          className="h-full w-full object-cover"
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                         />
                       ) : (
                         <div className="flex h-full items-center justify-center text-[11px] text-[#6e6e73]">
@@ -493,6 +560,7 @@ export default function PaymentPage() {
           </ul>
 
           <div className="rounded-[20px] border border-black/[0.06] bg-white p-6 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+<<<<<<< HEAD
             <h2 className="text-[19px] font-semibold text-[#1d1d1f]">Shipping address</h2>
             <p className="mt-1 text-[14px] text-[#6e6e73]">Enter where you&apos;d like your order delivered.</p>
             
@@ -573,6 +641,21 @@ export default function PaymentPage() {
             </div>
 
             <div className="mt-8 flex flex-col justify-between gap-4 border-t border-black/[0.08] pt-6 sm:flex-row sm:items-center">
+=======
+            <label htmlFor="pay-ship" className="text-[13px] font-medium text-[#1d1d1f]">
+              Shipping address <span className="font-normal text-[#6e6e73]">(optional)</span>
+            </label>
+            <textarea
+              id="pay-ship"
+              rows={2}
+              value={shippingAddress}
+              onChange={(e) => setShippingAddress(e.target.value)}
+              className="mt-2 w-full resize-none rounded-xl border border-black/[0.12] bg-[#f5f5f7] px-3 py-2.5 text-[15px] text-[#1d1d1f] outline-none focus:border-[#0071e3] focus:ring-2 focus:ring-[#0071e3]/25"
+              placeholder="Street, city, ZIP"
+            />
+
+            <div className="mt-6 flex flex-col justify-between gap-4 border-t border-black/[0.08] pt-6 sm:flex-row sm:items-center">
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
               <div>
                 <p className="text-[13px] text-[#6e6e73]">Selected total</p>
                 <p className="text-[24px] font-semibold text-[#1d1d1f]">
@@ -592,7 +675,11 @@ export default function PaymentPage() {
                   </p>
                 ) : null}
                 {checkoutError ? (
+<<<<<<< HEAD
                   <p className="max-w-[300px] text-[13px] text-[#bf4800] sm:text-right" role="alert">
+=======
+                  <p className="text-[13px] text-[#bf4800]" role="alert">
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                     {checkoutError}
                   </p>
                 ) : null}
@@ -602,7 +689,10 @@ export default function PaymentPage() {
                     disabled={
                       checkoutLoading ||
                       !isCustomer ||
+<<<<<<< HEAD
                       !isShippingValid ||
+=======
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                       selectedLines.length === 0 ||
                       selectedLines.some((l) => {
                         const p = productById.get(Number(l.productId))
@@ -620,7 +710,10 @@ export default function PaymentPage() {
                     disabled={
                       checkoutLoading ||
                       !isCustomer ||
+<<<<<<< HEAD
                       !isShippingValid ||
+=======
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                       paymentQueue.length === 0 ||
                       paymentQueue.some((l) => {
                         const p = productById.get(Number(l.productId))

@@ -161,7 +161,11 @@ export default function PurchasePage() {
       const { products: list } = await apiProducts()
       setProducts(Array.isArray(list) ? list : [])
     } catch (e) {
+<<<<<<< HEAD
       setLoadError(e.message || 'Unable to connect to server.')
+=======
+      setLoadError(e.message || 'Could not load products.')
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
       setProducts([])
     } finally {
       setLoading(false)
@@ -498,6 +502,7 @@ export default function PurchasePage() {
           {orderSuccess ? (
             <div className="space-y-6">
               <div
+<<<<<<< HEAD
                 className={`rounded-[20px] border px-6 py-6 text-center ${
                   orderSuccess.status === 'placed'
                     ? 'border-amber-200/80 bg-amber-50'
@@ -516,6 +521,15 @@ export default function PurchasePage() {
                   {formatOrderRef(orderSuccess.id)} ·{' '}
                   {money.format(Number(orderSuccess.total_amount))}
                   {orderSuccess.status === 'placed' ? ' — payment pending' : ''}
+=======
+                className="rounded-[20px] border border-emerald-200/80 bg-emerald-50 px-6 py-6 text-center"
+                role="status"
+              >
+                <p className="text-[17px] font-semibold text-[#14532d]">Thank you</p>
+                <p className="mt-2 text-[15px] text-[#166534]">
+                  {formatOrderRef(orderSuccess.id)} ·{' '}
+                  {money.format(Number(orderSuccess.total_amount))}
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                 </p>
               </div>
 
@@ -539,13 +553,21 @@ export default function PurchasePage() {
                       type="button"
                       disabled={stripeRedirectLoading || paymentLoading}
                       onClick={() => void startStripeCheckout()}
+<<<<<<< HEAD
                       className="mt-4 w-full cursor-pointer rounded-full bg-[#0071e3] py-3.5 text-[16px] font-medium text-white transition-all duration-200 hover:bg-[#0077ed] disabled:cursor-not-allowed disabled:bg-neutral-300"
+=======
+                      className="mt-4 w-full rounded-full bg-[#0071e3] py-3.5 text-[16px] font-medium text-white transition hover:bg-[#0077ed] disabled:bg-neutral-300"
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                     >
                       {stripeRedirectLoading ? 'Redirecting…' : 'Pay with card (Stripe test)'}
                     </button>
                   ) : (
                     <p className="mt-4 rounded-lg bg-amber-50 px-3 py-2 text-[13px] text-amber-950">
+<<<<<<< HEAD
                       Stripe not configured — use "Mark as paid (demo)" or add{' '}
+=======
+                      Stripe not configured — use “Mark as paid (demo)” or add{' '}
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                       <code className="rounded bg-black/[0.08] px-1">STRIPE_SECRET_KEY</code>.
                     </p>
                   )}
@@ -553,17 +575,27 @@ export default function PurchasePage() {
                     type="button"
                     disabled={paymentLoading || stripeRedirectLoading}
                     onClick={() => void simulatePayment()}
+<<<<<<< HEAD
                     className="mt-3 w-full cursor-pointer rounded-full border border-black/[0.12] bg-white py-3.5 text-[15px] font-medium text-[#1d1d1f] transition-all duration-200 hover:bg-black/[0.04] disabled:cursor-not-allowed disabled:opacity-50"
+=======
+                    className="mt-3 w-full rounded-full border border-black/[0.12] bg-white py-3.5 text-[15px] font-medium text-[#1d1d1f] transition hover:bg-black/[0.04] disabled:opacity-50"
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                   >
                     {paymentLoading ? 'Processing…' : 'Mark as paid (demo — no card)'}
                   </button>
                 </div>
               ) : (
+<<<<<<< HEAD
                 <div className="rounded-[20px] border border-emerald-100 bg-emerald-50/50 px-6 py-4 text-center">
                   <p className="text-[15px] font-medium text-emerald-800">
                     ✓ Payment received. You'll get updates as your order moves along.
                   </p>
                 </div>
+=======
+                <p className="text-center text-[15px] text-[#6e6e73]">
+                  Payment received. You’ll get updates as your order moves along.
+                </p>
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
               )}
 
               {checkoutError ? (

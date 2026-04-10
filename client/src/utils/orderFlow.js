@@ -1,6 +1,10 @@
 /** Canonical lifecycle (matches server `orderStatuses.js`). */
 export const ORDER_FLOW_STEPS = [
+<<<<<<< HEAD
   { key: 'placed', label: 'Pending Payment', description: 'We received your order — awaiting payment.' },
+=======
+  { key: 'placed', label: 'Order placed', description: 'We received your order.' },
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   { key: 'paid', label: 'Paid', description: 'Payment confirmed.' },
   { key: 'processing', label: 'Processing', description: 'Preparing your shipment.' },
   { key: 'shipped', label: 'Shipped', description: 'On the way to you.' },

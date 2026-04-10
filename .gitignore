@@ -26,6 +26,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 
 # Logs
 logs
@@ -55,3 +56,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+=======
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7

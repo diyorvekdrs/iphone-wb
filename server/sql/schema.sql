@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS orders (
   user_id INT UNSIGNED NOT NULL,
   status VARCHAR(32) NOT NULL DEFAULT 'placed',
   total_amount DECIMAL(12, 2) NOT NULL,
+<<<<<<< HEAD
   shipping_full_name VARCHAR(255) NOT NULL,
   shipping_phone VARCHAR(64) NOT NULL,
   shipping_street VARCHAR(255) NOT NULL,
@@ -45,6 +46,9 @@ CREATE TABLE IF NOT EXISTS orders (
   shipping_region VARCHAR(100) NOT NULL,
   shipping_zip VARCHAR(32) NOT NULL,
   shipping_country VARCHAR(100) NOT NULL,
+=======
+  shipping_address VARCHAR(512) NULL,
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   notes VARCHAR(512) NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

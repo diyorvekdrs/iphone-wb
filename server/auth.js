@@ -1,5 +1,8 @@
 import jwt from 'jsonwebtoken'
+<<<<<<< HEAD
 import { pool } from './db.js'
+=======
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
 
 export const COOKIE_NAME = 'itball2_token'
 
@@ -19,7 +22,11 @@ const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN ?? '7d'
 export function signUserToken(user) {
   return jwt.sign(
     {
+<<<<<<< HEAD
       id: Number(user.id),
+=======
+      sub: Number(user.id),
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
       role: 'user',
       email: user.email,
       firstName: user.firstName,
@@ -36,7 +43,11 @@ export function signUserToken(user) {
 export function signAdminToken(admin) {
   return jwt.sign(
     {
+<<<<<<< HEAD
       id: 'super_admin',
+=======
+      sub: 'super_admin',
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
       role: 'super_admin',
       username: admin.username,
       displayName: admin.displayName,
@@ -66,13 +77,18 @@ export function clearCookieOptions() {
   return { path: '/', sameSite: 'lax', secure }
 }
 
+<<<<<<< HEAD
 export async function attachUser(req, _res, next) {
+=======
+export function attachUser(req, _res, next) {
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   req.user = undefined
   try {
     const raw =
       req.cookies?.[COOKIE_NAME] ||
       req.headers.authorization?.replace(/^Bearer\s+/i, '')
     if (!raw) return next()
+<<<<<<< HEAD
 
     const payload = verifyToken(raw)
     if (!payload || !payload.id) return next()
@@ -103,13 +119,24 @@ export async function attachUser(req, _res, next) {
     } else {
       console.error('[auth] attachUser error:', err.message)
     }
+=======
+    req.user = verifyToken(raw)
+  } catch {
+    req.user = undefined
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   }
   next()
 }
 
+<<<<<<< HEAD
 export async function requireAuth(req, res, next) {
   if (!req.user) {
     return res.status(401).json({ error: 'Unauthorized. Please log in.' })
+=======
+export function requireAuth(req, res, next) {
+  if (!req.user) {
+    return res.status(401).json({ error: 'Unauthorized' })
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   }
   next()
 }

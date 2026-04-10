@@ -3,7 +3,11 @@
     "sku": "17-pro-max",
     "name": "iPhone 17 Pro Max",
     "description": "Our largest Pro display, longest battery life, and the most advanced pro camera system — aluminum unibody design with A19 Pro.",
+<<<<<<< HEAD
     "image_url": "/iphone-models/iphone-17-pro-orange-front-back.png",
+=======
+    "image_url": "/iphone-models/iphone-17-pro.avif",
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
     "storage_gb": 256,
     "color": "Cosmic Orange, Deep Navy, Silver",
     "price": 1199.0,

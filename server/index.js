@@ -92,14 +92,21 @@ app.get('/api/health', async (_req, res) => {
 
 app.get('/api/auth/me', (req, res) => {
   if (!req.user) {
+<<<<<<< HEAD
     return res.status(401).json({ user: null, error: 'Not authenticated' })
+=======
+    return res.json({ user: null })
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   }
   const p = req.user
   if (p.role === 'super_admin') {
     return res.json({
       user: {
         role: 'super_admin',
+<<<<<<< HEAD
         id: 'super_admin',
+=======
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
         username: p.username,
         displayName: p.displayName,
       },
@@ -107,7 +114,11 @@ app.get('/api/auth/me', (req, res) => {
   }
   return res.json({
     user: {
+<<<<<<< HEAD
       id: p.id,
+=======
+      id: p.sub,
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
       email: p.email,
       firstName: p.firstName,
       lastName: p.lastName,
@@ -301,6 +312,7 @@ app.post('/api/auth/admin-login', (req, res) => {
 })
 
 /** Any signed-in user (customer or super admin). */
+<<<<<<< HEAD
 app.get('/api/user/profile', requireAuth, async (req, res) => {
   if (req.user.role === 'super_admin') {
     return res.json({ ok: true, user: { ...req.user, created_at: new Date().toISOString() } })
@@ -323,6 +335,10 @@ app.get('/api/user/profile', requireAuth, async (req, res) => {
     if (sendIfDbUnavailable(res, err, 'profile')) return
     res.status(500).json({ error: 'Could not fetch profile' })
   }
+=======
+app.get('/api/user/profile', requireAuth, (req, res) => {
+  res.json({ ok: true, claims: req.user })
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
 })
 
 /** iPhone comparison CSV data (see `npm run db:import-iphone`). */
@@ -368,12 +384,18 @@ app.get('/api/products', async (_req, res) => {
 
 /** Place an order (customer JWT only). */
 app.post('/api/orders', requireAuth, requireCustomer, async (req, res) => {
+<<<<<<< HEAD
   const userId = Number(req.user.id)
   const { items, shipping, notes } = req.body ?? {}
+=======
+  const userId = Number(req.user.sub)
+  const { items, shipping_address: shippingAddress, notes } = req.body ?? {}
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   if (!Array.isArray(items) || items.length === 0) {
     return res.status(400).json({ error: 'Order must include at least one item.' })
   }
 
+<<<<<<< HEAD
   // Mandatory structured shipping validation
   const {
     fullName,
@@ -400,6 +422,8 @@ app.post('/api/orders', requireAuth, requireCustomer, async (req, res) => {
     })
   }
 
+=======
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   const rawItems = items
   const need = new Map()
   for (const raw of rawItems) {
@@ -461,6 +485,11 @@ app.post('/api/orders', requireAuth, requireCustomer, async (req, res) => {
       lines.push({ productId, quantity, unitPrice: unit, itemNote })
     }
 
+<<<<<<< HEAD
+=======
+    const ship =
+      shippingAddress != null ? String(shippingAddress).trim().slice(0, 512) : ''
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
     const globalNote = notes != null ? String(notes).trim() : ''
     const lineNoteBlocks = lines
       .map((l, idx) =>
@@ -475,6 +504,7 @@ app.post('/api/orders', requireAuth, requireCustomer, async (req, res) => {
       .slice(0, 512)
 
     const [orderResult] = await conn.execute(
+<<<<<<< HEAD
       `INSERT INTO orders (
         user_id, status, total_amount, 
         shipping_full_name, shipping_phone, shipping_street, 
@@ -491,6 +521,14 @@ app.post('/api/orders', requireAuth, requireCustomer, async (req, res) => {
         region.trim(),
         zip.trim(),
         country.trim(),
+=======
+      `INSERT INTO orders (user_id, status, total_amount, shipping_address, notes)
+       VALUES (?, 'placed', ?, ?, ?)`,
+      [
+        userId,
+        totalAmount.toFixed(2),
+        ship || null,
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
         noteStr || null,
       ],
     )
@@ -542,6 +580,7 @@ app.post('/api/orders', requireAuth, requireCustomer, async (req, res) => {
 
 /** List current customer's orders (newest first). */
 app.get('/api/orders/mine', requireAuth, requireCustomer, async (req, res) => {
+<<<<<<< HEAD
   const userId = Number(req.user.id)
   try {
     const [orders] = await pool.query(
@@ -549,12 +588,19 @@ app.get('/api/orders/mine', requireAuth, requireCustomer, async (req, res) => {
               o.shipping_full_name, o.shipping_phone, o.shipping_street,
               o.shipping_city, o.shipping_region, o.shipping_zip, o.shipping_country,
               o.shipping_address,
+=======
+  const userId = Number(req.user.sub)
+  try {
+    const [orders] = await pool.query(
+      `SELECT o.id, o.status, o.total_amount, o.shipping_address, o.notes, o.created_at,
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
               (SELECT COUNT(*) FROM order_items oi WHERE oi.order_id = o.id) AS item_count
        FROM orders o
        WHERE o.user_id = ?
        ORDER BY o.created_at DESC`,
       [userId],
     )
+<<<<<<< HEAD
     if (orders.length > 0) {
       const orderIds = orders.map(o => o.id)
       const [items] = await pool.query(
@@ -572,6 +618,8 @@ app.get('/api/orders/mine', requireAuth, requireCustomer, async (req, res) => {
           .map(sanitizeOrderItemRow)
       }
     }
+=======
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
     res.json({ orders })
   } catch (err) {
     if (sendIfDbUnavailable(res, err, 'orders mine')) return
@@ -582,17 +630,25 @@ app.get('/api/orders/mine', requireAuth, requireCustomer, async (req, res) => {
 
 /** Single order for current customer (with line items). */
 app.get('/api/orders/mine/:id', requireAuth, requireCustomer, async (req, res) => {
+<<<<<<< HEAD
   const userId = Number(req.user.id)
+=======
+  const userId = Number(req.user.sub)
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   const id = Number(req.params.id)
   if (!Number.isInteger(id) || id < 1) {
     return res.status(400).json({ error: 'Invalid order id.' })
   }
   try {
     const [ord] = await pool.query(
+<<<<<<< HEAD
       `SELECT o.id, o.user_id, o.status, o.total_amount, o.notes, o.created_at,
               o.shipping_full_name, o.shipping_phone, o.shipping_street,
               o.shipping_city, o.shipping_region, o.shipping_zip, o.shipping_country,
               o.shipping_address
+=======
+      `SELECT o.id, o.user_id, o.status, o.total_amount, o.shipping_address, o.notes, o.created_at
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
        FROM orders o
        WHERE o.id = ? AND o.user_id = ?`,
       [id, userId],
@@ -637,7 +693,11 @@ app.post(
           'Stripe is not configured. Add STRIPE_SECRET_KEY (sk_test_…) to your server .env and restart.',
       })
     }
+<<<<<<< HEAD
     const userId = Number(req.user.id)
+=======
+    const userId = Number(req.user.sub)
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
     const id = Number(req.params.id)
     if (!Number.isInteger(id) || id < 1) {
       return res.status(400).json({ error: 'Invalid order id.' })
@@ -749,7 +809,11 @@ app.get('/api/stripe/verify-session', requireAuth, requireCustomer, async (req, 
   if (!sessionId || !sessionId.startsWith('cs_')) {
     return res.status(400).json({ error: 'Missing or invalid session_id.' })
   }
+<<<<<<< HEAD
   const userId = Number(req.user.id)
+=======
+  const userId = Number(req.user.sub)
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   let conn
   try {
     const session = await stripe.checkout.sessions.retrieve(sessionId)
@@ -840,7 +904,11 @@ app.post(
   requireAuth,
   requireCustomer,
   async (req, res) => {
+<<<<<<< HEAD
     const userId = Number(req.user.id)
+=======
+    const userId = Number(req.user.sub)
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
     const id = Number(req.params.id)
     if (!Number.isInteger(id) || id < 1) {
       return res.status(400).json({ error: 'Invalid order id.' })

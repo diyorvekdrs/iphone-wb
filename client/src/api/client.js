@@ -33,6 +33,7 @@ export async function apiMe() {
   return parseJson(res)
 }
 
+<<<<<<< HEAD
 export async function apiUserProfile() {
   const res = await safeFetch(`${base}/api/user/profile`, { method: 'GET' })
   const data = await parseJson(res)
@@ -40,6 +41,8 @@ export async function apiUserProfile() {
   return data
 }
 
+=======
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
 export async function apiLogout() {
   const res = await safeFetch(`${base}/api/auth/logout`, { method: 'POST' })
   const data = await parseJson(res)
@@ -132,7 +135,11 @@ export async function apiProducts() {
       res.status === 404
         ? ' Restart the API (npm run server) so it loads the latest routes.'
         : ''
+<<<<<<< HEAD
     throw new Error((data.error || 'Unable to connect to server.') + hint)
+=======
+    throw new Error((data.error || 'Could not load products.') + hint)
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
   }
   return data
 }

@@ -1,5 +1,10 @@
 /**
+<<<<<<< HEAD
  * Privacy Policy for iPhone Store.
+=======
+ * Privacy policy for the IT BALL / iPhone Store demo app.
+ * Replace placeholders and review with qualified counsel before production use.
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
  */
 export default function PrivacyPolicyPage() {
   const updated = 'April 10, 2026'
@@ -16,11 +21,25 @@ export default function PrivacyPolicyPage() {
         <p className="mt-2 text-[14px] text-[#6e6e73]">Last updated: {updated}</p>
 
         <div className="mt-8 space-y-8 text-[15px] leading-relaxed text-[#424245]">
+<<<<<<< HEAD
+=======
+          <section className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-[13px] text-amber-950">
+            <p>
+              <strong className="font-semibold">Note:</strong> This policy describes how this student / demo
+              store project is intended to handle information. It is not legal advice. Before launching a
+              real business, have a lawyer review your practices and this text.
+            </p>
+          </section>
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
 
           <section>
             <h2 className="text-[17px] font-semibold text-[#1d1d1f]">Who we are</h2>
             <p className="mt-2">
+<<<<<<< HEAD
               This website is operated as <strong className="font-medium text-[#1d1d1f]">iPhone Store</strong>{' '}
+=======
+              This website is operated as <strong className="font-medium text-[#1d1d1f]">IT BALL Store</strong>{' '}
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
               (the “Store,” “we,” or “us”). When this policy says “you,” it means anyone who visits the site,
               creates an account, or places an order.
             </p>
@@ -85,7 +104,11 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-[17px] font-semibold text-[#1d1d1f]">Retention</h2>
             <p className="mt-2">
               We keep information only as long as needed for the purposes above, unless a longer period is
+<<<<<<< HEAD
               required by law.
+=======
+              required by law. In a demo environment, data may be reset or deleted when the database is rebuilt.
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
             </p>
           </section>
 
@@ -126,9 +149,15 @@ export default function PrivacyPolicyPage() {
           <section>
             <h2 className="text-[17px] font-semibold text-[#1d1d1f]">Contact</h2>
             <p className="mt-2">
+<<<<<<< HEAD
               For questions regarding this policy, please reach out to our privacy team at:{' '}
               <a
                 href="mailto:ItzIbragimov.uz@gmail.com"
+=======
+              Questions about this policy:{' '}
+              <a
+                href="mailto:ItzIbragimov.uz@gmail.com?subject=Privacy%20policy%20inquiry"
+>>>>>>> 49ddc41528d7468f4a00b71b2a8f486afec365c7
                 className="font-mono text-[14px] text-[#0066cc] hover:underline"
               >
                 ItzIbragimov.uz@gmail.com
